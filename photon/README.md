@@ -14,6 +14,8 @@ WARNING:
 
 -->
 
+**Note:** this is the "per-architecture" repository for the `arm32v7` builds of [the `photon` official image](https://hub.docker.com/_/photon) -- for more information, see ["Architectures other than amd64?" in the official images documentation](https://github.com/docker-library/official-images#architectures-other-than-amd64) and ["An image's source changed in Git, now what?" in the official images FAQ](https://github.com/docker-library/faq#an-images-source-changed-in-git-now-what).
+
 # Quick reference
 
 -	**Maintained by**:  
@@ -24,9 +26,9 @@ WARNING:
 
 # Supported tags and respective `Dockerfile` links
 
--	[`3.0`, `3.0-20201201`, `latest`](https://github.com/vmware/photon-docker-image/blob/3ae6738593247243537c51206e4137ae09862e74/docker/Dockerfile)
--	[`1.0`, `1.0-20201127`](https://github.com/vmware/photon-docker-image/blob/51f1c42387c33550e99cb2d81e28b4295be4db11/docker/Dockerfile)
--	[`2.0`, `2.0-20201127`](https://github.com/vmware/photon-docker-image/blob/96493a307b763115e189cad3253f37f04083cff2/docker/Dockerfile)
+**WARNING:** THIS IMAGE *IS NOT SUPPORTED* ON THE `arm32v7` ARCHITECTURE
+
+[![arm32v7/photon build status badge](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/multiarch/job/arm32v7/job/photon.svg?label=arm32v7/photon%20%20build%20job)](https://doi-janky.infosiftr.net/job/multiarch/job/arm32v7/job/photon/)
 
 # Quick reference (cont.)
 
@@ -59,7 +61,7 @@ See the [FAQ](http://vmware.github.io/photon/assets/files/photon_faqs.pdf) for m
 
 ## How to use these images
 
-Photon OS images are intended for use in the **FROM** field of an application's `Dockerfile`. For example, to use VMware Photon 1.0GA as the base of an image, specify `FROM photon:1.0GA`.
+Photon OS images are intended for use in the **FROM** field of an application's `Dockerfile`. For example, to use VMware Photon 1.0GA as the base of an image, specify `FROM arm32v7/photon:1.0GA`.
 
 ## Support
 
