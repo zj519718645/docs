@@ -14,6 +14,8 @@ WARNING:
 
 -->
 
+**Note:** this is the "per-architecture" repository for the `arm64v8` builds of [the `gradle` official image](https://hub.docker.com/_/gradle) -- for more information, see ["Architectures other than amd64?" in the official images documentation](https://github.com/docker-library/official-images#architectures-other-than-amd64) and ["An image's source changed in Git, now what?" in the official images FAQ](https://github.com/docker-library/faq#an-images-source-changed-in-git-now-what).
+
 # Quick reference
 
 -	**Maintained by**:  
@@ -30,10 +32,8 @@ WARNING:
 -	[`6.7.1-jre11`, `6.7.1-jre11-hotspot`, `6.7-jre11`, `6.7-jre11-hotspot`, `jre11`, `jre11-hotspot`](https://github.com/keeganwitt/docker-gradle/blob/fa9021708ab3315acbf4208125f6ca316e903ac6/hotspot/jre11/Dockerfile)
 -	[`6.7.1-jdk15`, `6.7.1-jdk15-hotspot`, `6.7-jdk15`, `6.7-jdk15-hotspot`, `jdk15`, `jdk15-hotspot`](https://github.com/keeganwitt/docker-gradle/blob/fa9021708ab3315acbf4208125f6ca316e903ac6/hotspot/jdk15/Dockerfile)
 -	[`6.7.1-jre15`, `6.7.1-jre15-hotspot`, `6.7-jre15`, `6.7-jre15-hotspot`, `jre15`, `jre15-hotspot`](https://github.com/keeganwitt/docker-gradle/blob/fa9021708ab3315acbf4208125f6ca316e903ac6/hotspot/jre15/Dockerfile)
--	[`6.7.1-jdk8-openj9`, `6.7-jdk8-openj9`, `jdk8-openj9`, `6.7.1-jdk-openj9`, `6.7-jdk-openj9`, `jdk-openj9`, `6.7.1-openj9`, `6.7-openj9`, `openj9`](https://github.com/keeganwitt/docker-gradle/blob/fa9021708ab3315acbf4208125f6ca316e903ac6/openj9/jdk8/Dockerfile)
--	[`6.7.1-jre8-openj9`, `6.7-jre8-openj9`, `jre8-openj9`, `6.7.1-jre-openj9`, `6.7-jre-openj9`, `jre-openj9`](https://github.com/keeganwitt/docker-gradle/blob/fa9021708ab3315acbf4208125f6ca316e903ac6/openj9/jre8/Dockerfile)
--	[`6.7.1-jdk11-openj9`, `6.7-jdk11-openj9`, `jdk11-openj9`](https://github.com/keeganwitt/docker-gradle/blob/fa9021708ab3315acbf4208125f6ca316e903ac6/openj9/jdk11/Dockerfile)
--	[`6.7.1-jre11-openj9`, `6.7-jre11-openj9`, `jre11-openj9`](https://github.com/keeganwitt/docker-gradle/blob/fa9021708ab3315acbf4208125f6ca316e903ac6/openj9/jre11/Dockerfile)
+
+[![arm64v8/gradle build status badge](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/multiarch/job/arm64v8/job/gradle.svg?label=arm64v8/gradle%20%20build%20job)](https://doi-janky.infosiftr.net/job/multiarch/job/arm64v8/job/gradle/)
 
 # Quick reference (cont.)
 
@@ -66,7 +66,7 @@ WARNING:
 
 Run this from the directory of the Gradle project you want to build.
 
-`docker run --rm -u gradle -v "$PWD":/home/gradle/project -w /home/gradle/project gradle gradle <gradle-task>`
+`docker run --rm -u gradle -v "$PWD":/home/gradle/project -w /home/gradle/project arm64v8/gradle gradle <gradle-task>`
 
 Note the above command runs using uid/gid 1000 (user *gradle*) to avoid running as root.
 
