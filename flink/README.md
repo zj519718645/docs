@@ -14,6 +14,8 @@ WARNING:
 
 -->
 
+**Note:** this is the "per-architecture" repository for the `windows-amd64` builds of [the `flink` official image](https://hub.docker.com/_/flink) -- for more information, see ["Architectures other than amd64?" in the official images documentation](https://github.com/docker-library/official-images#architectures-other-than-amd64) and ["An image's source changed in Git, now what?" in the official images FAQ](https://github.com/docker-library/faq#an-images-source-changed-in-git-now-what).
+
 # Quick reference
 
 -	**Maintained by**:  
@@ -24,12 +26,9 @@ WARNING:
 
 # Supported tags and respective `Dockerfile` links
 
--	[`1.11.2-scala_2.12-java8`, `1.11-scala_2.12-java8`, `scala_2.12-java8`, `1.11.2-scala_2.12`, `1.11-scala_2.12`, `scala_2.12`, `1.11.2-java8`, `1.11-java8`, `java8`, `1.11.2`, `1.11`, `latest`](https://github.com/apache/flink-docker/blob/149ebb09d9146ec46c6df0ab73d638c4d7549c10/1.11/scala_2.12-java8-debian/Dockerfile)
--	[`1.11.2-scala_2.11-java8`, `1.11-scala_2.11-java8`, `scala_2.11-java8`, `1.11.2-scala_2.11`, `1.11-scala_2.11`, `scala_2.11`](https://github.com/apache/flink-docker/blob/149ebb09d9146ec46c6df0ab73d638c4d7549c10/1.11/scala_2.11-java8-debian/Dockerfile)
--	[`1.11.2-scala_2.12-java11`, `1.11-scala_2.12-java11`, `scala_2.12-java11`, `1.11.2-java11`, `1.11-java11`, `java11`](https://github.com/apache/flink-docker/blob/149ebb09d9146ec46c6df0ab73d638c4d7549c10/1.11/scala_2.12-java11-debian/Dockerfile)
--	[`1.11.2-scala_2.11-java11`, `1.11-scala_2.11-java11`, `scala_2.11-java11`](https://github.com/apache/flink-docker/blob/149ebb09d9146ec46c6df0ab73d638c4d7549c10/1.11/scala_2.11-java11-debian/Dockerfile)
--	[`1.10.2-scala_2.12`, `1.10-scala_2.12`, `1.10.2`, `1.10`](https://github.com/apache/flink-docker/blob/58a29fca7c6ff05999fad4371638d16335f7e93e/1.10/scala_2.12-debian/Dockerfile)
--	[`1.10.2-scala_2.11`, `1.10-scala_2.11`](https://github.com/apache/flink-docker/blob/58a29fca7c6ff05999fad4371638d16335f7e93e/1.10/scala_2.11-debian/Dockerfile)
+**WARNING:** THIS IMAGE *IS NOT SUPPORTED* ON THE `windows-amd64` ARCHITECTURE
+
+[![winamd64/flink build status badge](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/multiarch/job/windows-amd64/job/flink.svg?label=winamd64/flink%20%20build%20job)](https://doi-janky.infosiftr.net/job/multiarch/job/windows-amd64/job/flink/)
 
 # Quick reference (cont.)
 
