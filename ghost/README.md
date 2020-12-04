@@ -14,6 +14,8 @@ WARNING:
 
 -->
 
+**Note:** this is the "per-architecture" repository for the `mips64le` builds of [the `ghost` official image](https://hub.docker.com/_/ghost) -- for more information, see ["Architectures other than amd64?" in the official images documentation](https://github.com/docker-library/official-images#architectures-other-than-amd64) and ["An image's source changed in Git, now what?" in the official images FAQ](https://github.com/docker-library/faq#an-images-source-changed-in-git-now-what).
+
 # Quick reference
 
 -	**Maintained by**:  
@@ -24,10 +26,9 @@ WARNING:
 
 # Supported tags and respective `Dockerfile` links
 
--	[`3.39.0`, `3.39`, `3`, `latest`](https://github.com/docker-library/ghost/blob/66240c5a203c7882417c133c923f7ad26d8a6f4f/3/debian/Dockerfile)
--	[`3.39.0-alpine`, `3.39-alpine`, `3-alpine`, `alpine`](https://github.com/docker-library/ghost/blob/66240c5a203c7882417c133c923f7ad26d8a6f4f/3/alpine/Dockerfile)
--	[`2.38.2`, `2.38`, `2`](https://github.com/docker-library/ghost/blob/705e1d8724e478a93fbb76b6cfdf670d86f01d9e/2/debian/Dockerfile)
--	[`2.38.2-alpine`, `2.38-alpine`, `2-alpine`](https://github.com/docker-library/ghost/blob/705e1d8724e478a93fbb76b6cfdf670d86f01d9e/2/alpine/Dockerfile)
+**WARNING:** THIS IMAGE *IS NOT SUPPORTED* ON THE `mips64le` ARCHITECTURE
+
+[![mips64le/ghost build status badge](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/multiarch/job/mips64le/job/ghost.svg?label=mips64le/ghost%20%20build%20job)](https://doi-janky.infosiftr.net/job/multiarch/job/mips64le/job/ghost/)
 
 # Quick reference (cont.)
 
@@ -61,7 +62,7 @@ Ghost is a free and open source blogging platform written in JavaScript and dist
 This will start a Ghost instance listening on the default Ghost port of 2368.
 
 ```console
-$ docker run -d --name some-ghost ghost
+$ docker run -d --name some-ghost mips64le/ghost
 ```
 
 ## Custom port
@@ -69,7 +70,7 @@ $ docker run -d --name some-ghost ghost
 If you'd like to be able to access the instance from the host without the container's IP, standard port mappings can be used:
 
 ```console
-$ docker run -d --name some-ghost -e url=http://localhost:3001 -p 3001:2368 ghost
+$ docker run -d --name some-ghost -e url=http://localhost:3001 -p 3001:2368 mips64le/ghost
 ```
 
 If all goes well, you'll be able to access your new site on `http://localhost:3001` and `http://localhost:3001/ghost` to access Ghost Admin (or `http://host-ip:3001` and `http://host-ip:3001/ghost`, respectively).
@@ -87,13 +88,13 @@ Mount your existing content. In this example we also use the Alpine base image.
 ### Ghost 1.x.x
 
 ```console
-$ docker run -d --name some-ghost -p 3001:2368 -v /path/to/ghost/blog:/var/lib/ghost/content ghost:1-alpine
+$ docker run -d --name some-ghost -p 3001:2368 -v /path/to/ghost/blog:/var/lib/ghost/content mips64le/ghost:1-alpine
 ```
 
 ### Ghost 0.11.xx
 
 ```console
-$ docker run -d --name some-ghost -p 3001:2368 -v /path/to/ghost/blog:/var/lib/ghost ghost:0.11-alpine
+$ docker run -d --name some-ghost -p 3001:2368 -v /path/to/ghost/blog:/var/lib/ghost mips64le/ghost:0.11-alpine
 ```
 
 ### Docker Volume
@@ -101,7 +102,7 @@ $ docker run -d --name some-ghost -p 3001:2368 -v /path/to/ghost/blog:/var/lib/g
 Alternatively you can use a [data container](http://docs.docker.com/engine/tutorials/dockervolumes/) that has a volume that points to `/var/lib/ghost/content` (or /var/lib/ghost for 0.11.x) and then reference it:
 
 ```console
-$ docker run -d --name some-ghost --volumes-from some-ghost-data ghost
+$ docker run -d --name some-ghost --volumes-from some-ghost-data mips64le/ghost
 ```
 
 ### SQLite Database
@@ -113,7 +114,7 @@ This Docker image for Ghost uses SQLite. There is nothing special to configure.
 All Ghost configuration parameters (such as `url`) can be specified via environment variables. See [the Ghost documentation](https://ghost.org/docs/concepts/config/#running-ghost-with-config-env-variables) for details about what configuration is allowed and how to convert a nested configuration key into the appropriate environment variable name:
 
 ```console
-$ docker run -d --name some-ghost -e url=http://some-ghost.example.com ghost
+$ docker run -d --name some-ghost -e url=http://some-ghost.example.com mips64le/ghost
 ```
 
 (There are further configuration examples in the `stack.yml` listed below.)
@@ -168,22 +169,6 @@ services:
 [![Try in PWD](https://github.com/play-with-docker/stacks/raw/cff22438cb4195ace27f9b15784bbb497047afa7/assets/images/button.png)](http://play-with-docker.com?stack=https://raw.githubusercontent.com/docker-library/docs/c57e666ff4299ee6e801a9843b7f39eebfd8f2da/ghost/stack.yml)
 
 Run `docker stack deploy -c stack.yml ghost` (or `docker-compose -f stack.yml up`), wait for it to initialize completely, and visit `http://swarm-ip:8080`, `http://localhost:8080`, or `http://host-ip:8080` (as appropriate).
-
-# Image Variants
-
-The `ghost` images come in many flavors, each designed for a specific use case.
-
-## `ghost:<version>`
-
-This is the defacto image. If you are unsure about what your needs are, you probably want to use this one. It is designed to be used both as a throw away container (mount your source code and start the container to start your app), as well as the base to build other images off of.
-
-## `ghost:<version>-alpine`
-
-This image is based on the popular [Alpine Linux project](https://alpinelinux.org), available in [the `alpine` official image](https://hub.docker.com/_/alpine). Alpine Linux is much smaller than most distribution base images (~5MB), and thus leads to much slimmer images in general.
-
-This variant is highly recommended when final image size being as small as possible is desired. The main caveat to note is that it does use [musl libc](https://musl.libc.org) instead of [glibc and friends](https://www.etalabs.net/compare_libcs.html), so certain software might run into issues depending on the depth of their libc requirements. However, most software doesn't have an issue with this, so this variant is usually a very safe choice. See [this Hacker News comment thread](https://news.ycombinator.com/item?id=10782897) for more discussion of the issues that might arise and some pro/con comparisons of using Alpine-based images.
-
-To minimize image size, it's uncommon for additional related tools (such as `git` or `bash`) to be included in Alpine-based images. Using this image as a base, add the things you need in your own Dockerfile (see the [`alpine` image description](https://hub.docker.com/_/alpine/) for examples of how to install packages if you are unfamiliar).
 
 # License
 
