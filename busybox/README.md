@@ -14,6 +14,8 @@ WARNING:
 
 -->
 
+**Note:** this is the "per-architecture" repository for the `amd64` builds of [the `busybox` official image](https://hub.docker.com/_/busybox) -- for more information, see ["Architectures other than amd64?" in the official images documentation](https://github.com/docker-library/official-images#architectures-other-than-amd64) and ["An image's source changed in Git, now what?" in the official images FAQ](https://github.com/docker-library/faq#an-images-source-changed-in-git-now-what).
+
 # Quick reference
 
 -	**Maintained by**:  
@@ -28,6 +30,8 @@ WARNING:
 -	[`1.32.0-glibc`, `1.32-glibc`, `1-glibc`, `glibc`](https://github.com/docker-library/busybox/blob/3a8b3f6d991fdce58339535827052b5ef2f0180e/glibc/Dockerfile)
 -	[`1.32.0-musl`, `1.32-musl`, `1-musl`, `musl`](https://github.com/docker-library/busybox/blob/3a8b3f6d991fdce58339535827052b5ef2f0180e/musl/Dockerfile)
 -	[`1.32.0`, `1.32`, `1`, `latest`](https://github.com/docker-library/busybox/blob/3a8b3f6d991fdce58339535827052b5ef2f0180e/uclibc/Dockerfile)
+
+[![amd64/busybox build status badge](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/multiarch/job/amd64/job/busybox.svg?label=amd64/busybox%20%20build%20job)](https://doi-janky.infosiftr.net/job/multiarch/job/amd64/job/busybox/)
 
 # Quick reference (cont.)
 
@@ -63,7 +67,7 @@ BusyBox combines tiny versions of many common UNIX utilities into a single small
 ## Run BusyBox shell
 
 ```console
-$ docker run -it --rm busybox
+$ docker run -it --rm amd64/busybox
 ```
 
 This will drop you into an `sh` shell to allow you to do what you want inside a BusyBox system.
@@ -71,7 +75,7 @@ This will drop you into an `sh` shell to allow you to do what you want inside a 
 ## Create a `Dockerfile` for a binary
 
 ```dockerfile
-FROM busybox
+FROM amd64/busybox
 COPY ./my-static-binary /my-static-binary
 CMD ["/my-static-binary"]
 ```
@@ -80,19 +84,19 @@ This `Dockerfile` will allow you to create a minimal image for your statically c
 
 # Image Variants
 
-The `busybox` images contain BusyBox built against various "libc" variants (for a comparison of "libc" variants, [Eta Labs has a very nice chart](http://www.etalabs.net/compare_libcs.html) which lists many similarities and differences).
+The `amd64/busybox` images contain BusyBox built against various "libc" variants (for a comparison of "libc" variants, [Eta Labs has a very nice chart](http://www.etalabs.net/compare_libcs.html) which lists many similarities and differences).
 
 For more information about the specific particulars of the build process for each variant, see `Dockerfile.builder` in the same directory as each variant's `Dockerfile` (see links above).
 
-## `busybox:uclibc`
+## `amd64/busybox:uclibc`
 
 -	[uClibc](https://uclibc.org) via [Buildroot](https://buildroot.org) (statically compiled)
 
-## `busybox:glibc`
+## `amd64/busybox:glibc`
 
 -	[glibc from Debian](https://packages.debian.org/search?searchon=names&exact=1&suite=all&section=all&keywords=libc6) (which is then included in the image)
 
-## `busybox:musl`
+## `amd64/busybox:musl`
 
 -	[musl from Alpine](https://pkgs.alpinelinux.org/packages?name=musl) (statically compiled)
 
