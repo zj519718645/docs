@@ -14,6 +14,8 @@ WARNING:
 
 -->
 
+**Note:** this is the "per-architecture" repository for the `arm32v6` builds of [the `buildpack-deps` official image](https://hub.docker.com/_/buildpack-deps) -- for more information, see ["Architectures other than amd64?" in the official images documentation](https://github.com/docker-library/official-images#architectures-other-than-amd64) and ["An image's source changed in Git, now what?" in the official images FAQ](https://github.com/docker-library/faq#an-images-source-changed-in-git-now-what).
+
 # Quick reference
 
 -	**Maintained by**:  
@@ -24,33 +26,9 @@ WARNING:
 
 # Supported tags and respective `Dockerfile` links
 
--	[`bullseye-curl`, `testing-curl`](https://github.com/docker-library/buildpack-deps/blob/65d69325ad741cea6dee20781c1faaab2e003d87/debian/bullseye/curl/Dockerfile)
--	[`bullseye-scm`, `testing-scm`](https://github.com/docker-library/buildpack-deps/blob/65d69325ad741cea6dee20781c1faaab2e003d87/debian/bullseye/scm/Dockerfile)
--	[`bullseye`, `testing`](https://github.com/docker-library/buildpack-deps/blob/65d69325ad741cea6dee20781c1faaab2e003d87/debian/bullseye/Dockerfile)
--	[`buster-curl`, `stable-curl`, `curl`](https://github.com/docker-library/buildpack-deps/blob/65d69325ad741cea6dee20781c1faaab2e003d87/debian/buster/curl/Dockerfile)
--	[`buster-scm`, `stable-scm`, `scm`](https://github.com/docker-library/buildpack-deps/blob/65d69325ad741cea6dee20781c1faaab2e003d87/debian/buster/scm/Dockerfile)
--	[`buster`, `stable`, `latest`](https://github.com/docker-library/buildpack-deps/blob/65d69325ad741cea6dee20781c1faaab2e003d87/debian/buster/Dockerfile)
--	[`jessie-curl`, `oldoldstable-curl`](https://github.com/docker-library/buildpack-deps/blob/65d69325ad741cea6dee20781c1faaab2e003d87/debian/jessie/curl/Dockerfile)
--	[`jessie-scm`, `oldoldstable-scm`](https://github.com/docker-library/buildpack-deps/blob/65d69325ad741cea6dee20781c1faaab2e003d87/debian/jessie/scm/Dockerfile)
--	[`jessie`, `oldoldstable`](https://github.com/docker-library/buildpack-deps/blob/65d69325ad741cea6dee20781c1faaab2e003d87/debian/jessie/Dockerfile)
--	[`sid-curl`, `unstable-curl`](https://github.com/docker-library/buildpack-deps/blob/65d69325ad741cea6dee20781c1faaab2e003d87/debian/sid/curl/Dockerfile)
--	[`sid-scm`, `unstable-scm`](https://github.com/docker-library/buildpack-deps/blob/65d69325ad741cea6dee20781c1faaab2e003d87/debian/sid/scm/Dockerfile)
--	[`sid`, `unstable`](https://github.com/docker-library/buildpack-deps/blob/65d69325ad741cea6dee20781c1faaab2e003d87/debian/sid/Dockerfile)
--	[`stretch-curl`, `oldstable-curl`](https://github.com/docker-library/buildpack-deps/blob/65d69325ad741cea6dee20781c1faaab2e003d87/debian/stretch/curl/Dockerfile)
--	[`stretch-scm`, `oldstable-scm`](https://github.com/docker-library/buildpack-deps/blob/65d69325ad741cea6dee20781c1faaab2e003d87/debian/stretch/scm/Dockerfile)
--	[`stretch`, `oldstable`](https://github.com/docker-library/buildpack-deps/blob/65d69325ad741cea6dee20781c1faaab2e003d87/debian/stretch/Dockerfile)
--	[`bionic-curl`, `18.04-curl`](https://github.com/docker-library/buildpack-deps/blob/65d69325ad741cea6dee20781c1faaab2e003d87/ubuntu/bionic/curl/Dockerfile)
--	[`bionic-scm`, `18.04-scm`](https://github.com/docker-library/buildpack-deps/blob/65d69325ad741cea6dee20781c1faaab2e003d87/ubuntu/bionic/scm/Dockerfile)
--	[`bionic`, `18.04`](https://github.com/docker-library/buildpack-deps/blob/65d69325ad741cea6dee20781c1faaab2e003d87/ubuntu/bionic/Dockerfile)
--	[`focal-curl`, `20.04-curl`](https://github.com/docker-library/buildpack-deps/blob/65d69325ad741cea6dee20781c1faaab2e003d87/ubuntu/focal/curl/Dockerfile)
--	[`focal-scm`, `20.04-scm`](https://github.com/docker-library/buildpack-deps/blob/65d69325ad741cea6dee20781c1faaab2e003d87/ubuntu/focal/scm/Dockerfile)
--	[`focal`, `20.04`](https://github.com/docker-library/buildpack-deps/blob/65d69325ad741cea6dee20781c1faaab2e003d87/ubuntu/focal/Dockerfile)
--	[`groovy-curl`, `20.10-curl`](https://github.com/docker-library/buildpack-deps/blob/65d69325ad741cea6dee20781c1faaab2e003d87/ubuntu/groovy/curl/Dockerfile)
--	[`groovy-scm`, `20.10-scm`](https://github.com/docker-library/buildpack-deps/blob/65d69325ad741cea6dee20781c1faaab2e003d87/ubuntu/groovy/scm/Dockerfile)
--	[`groovy`, `20.10`](https://github.com/docker-library/buildpack-deps/blob/65d69325ad741cea6dee20781c1faaab2e003d87/ubuntu/groovy/Dockerfile)
--	[`xenial-curl`, `16.04-curl`](https://github.com/docker-library/buildpack-deps/blob/65d69325ad741cea6dee20781c1faaab2e003d87/ubuntu/xenial/curl/Dockerfile)
--	[`xenial-scm`, `16.04-scm`](https://github.com/docker-library/buildpack-deps/blob/65d69325ad741cea6dee20781c1faaab2e003d87/ubuntu/xenial/scm/Dockerfile)
--	[`xenial`, `16.04`](https://github.com/docker-library/buildpack-deps/blob/65d69325ad741cea6dee20781c1faaab2e003d87/ubuntu/xenial/Dockerfile)
+**WARNING:** THIS IMAGE *IS NOT SUPPORTED* ON THE `arm32v6` ARCHITECTURE
+
+[![arm32v6/buildpack-deps build status badge](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/multiarch/job/arm32v6/job/buildpack-deps.svg?label=arm32v6/buildpack-deps%20%20build%20job)](https://doi-janky.infosiftr.net/job/multiarch/job/arm32v6/job/buildpack-deps/)
 
 # Quick reference (cont.)
 
